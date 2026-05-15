@@ -1,0 +1,263 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #f8f4ee;
+  --brown: #4a2c24;
+  --light-brown: #dcc7aa;
+  --text: #5f514b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Remove Default Large Gaps */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* Soft Grain Overlay */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      rgba(74, 44, 36, 0.05) 0.5px,
+      transparent 0.5px
+    );
+
+  background-size: 22px 22px;
+
+  opacity: 0.18;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Smooth Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f4ee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a2c24;
+  border-radius: 10px;
+}
+
+/* Sections */
+
+section {
+  position: relative;
+  padding: 45px 6%;
+}
+
+/* Hero */
+
+.hero {
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  background: #f8f4ee;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Background Pattern */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.07;
+
+  z-index: 0;
+}
+
+/* Soft Overlay */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(248,244,238,0.93),
+      rgba(248,244,238,0.97)
+    );
+
+  z-index: 1;
+}
+
+/* Hero Content Above Texture */
+
+.hero h1,
+.hero p,
+.hero .buttons,
+.hero .scroll-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Typography */
+
+.section-heading {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  color: var(--brown);
+}
+
+.section-text {
+  color: var(--text);
+  max-width: 850px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* Divider */
+
+.divider {
+  margin-top: 8px;
+}
+
+/* Fade Animation */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards */
+
+.research-card,
+.feature,
+.motif-card {
+  transition: all 0.35s ease;
+
+  background: rgba(239, 230, 220, 0.72);
+
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(74, 44, 36, 0.08);
+
+  border-radius: 20px;
+}
+
+/* Hover */
+
+.research-card:hover,
+.feature:hover,
+.motif-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 40px rgba(74, 44, 36, 0.08);
+}
+
+/* Images */
+
+img {
+  transition: transform 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.01);
+}
+
+/* Research Grid */
+
+.research-grid {
+  gap: 18px;
+  margin-top: 28px;
+}
+
+/* Findings */
+
+.findings {
+  gap: 28px;
+}
+
+/* Questions */
+
+.questions {
+  gap: 14px;
+}
+
+.question {
+  padding-bottom: 18px;
+  margin-bottom: 4px;
+}
+
+/* Final Section */
+
+.final {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(248, 244, 238, 0.96),
+      rgba(239, 230, 220, 0.96)
+    );
+
+  position: relative;
+}
+
+/* Remove Excessive Spacing */
+
+.finding,
+.research-card,
+.feature,
+.motif-card {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  section {
+    padding: 38px 7%;
+  }
+
+  .section-heading {
+    font-size: 2.5rem;
+  }
+}
